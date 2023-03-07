@@ -1,0 +1,40 @@
+<p>base-modal-template works!</p>
+<div class="container">
+  <div class="modal-header">
+    <h1>{{ title }}</h1>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="">Select excel file ({{ fileTypes.toString() }})</label>
+      <div>
+        <input
+          type="file"
+          class="form-control mt-2"
+          name=""
+          id=""
+          (click)="cleanFileSelected(fileInput)"
+          #fileInput
+          (change)="generateJSon($event)"
+          [accept]="fileTypes.toString()"
+        />
+      </div>
+    </div>
+    <div class="mt-2" *ngIf="extraColumnErrors.length">
+      <p>{{ extraColumnsErrorMessage() }}</p>
+    </div>
+  </div>
+  <div class="modal-footer-justify-content-end">
+    <button type="button" class="btn btn-secondary" (click)="hide()">Cancel</button>
+    <ng-template appDynamicHost ></ng-template>
+  </div>
+</div>
+
+

@@ -1,0 +1,8 @@
+
+<button class="btn btn-primary" [disabled]="(sharedService.validating$ | async) || !(sharedService.isValid$ | async) || (sharedService.isSubmitting$ | async )"
+(click)="uploadFromAService()"
+> {{ (sharedService.validating$ | async) ? 'Validating' : 'Save shipping'}} {{(sharedService.isSubmitting$ | async )}} </button>
+
+<div> {{data | json}} or no data</div>
+
+

@@ -1,0 +1,13 @@
+<div class="mt-2" *ngIf="missingColumnErrors.length">
+      <p>{{ missingColumnsErrorMessage() }}</p>
+    </div>
+<button class="btn btn-primary">Save pickup</button>
+<button class="btn btn-primary" [disabled]="(sharedService.validating$ | async) || !(sharedService.isValid$ | async) || (sharedService.isSubmitting$ | async )"
+(click)="uploadFromAService()"
+> {{ (sharedService.validating$ | async) ? 'Validating' : 'Save shipping'}} {{(sharedService.isSubmitting$ | async )}} </button>
+
+<div> {{data | json}} or no data</div>
+<div> {{missingColumnErrors | json}} or no missingColumnErrors</div>
+<div> {{(sharedService.validating$ | async) }}</div>
+<div> {{!(sharedService.isValid$ | async)}} </div>
+<div> {{(sharedService.isSubmitting$ | async )}} </div>
